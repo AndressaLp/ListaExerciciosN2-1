@@ -66,3 +66,50 @@ int numDiscos = 3;
 torreHanoi.Hanoi(numDiscos, 'A', 'C', 'B', ref totalMovimentos);
 Console.WriteLine($"Total de movimentos para {numDiscos} discos: {totalMovimentos}");
 Console.WriteLine("\n");
+
+
+Console.WriteLine("Exercício 8 - Remover Duplicatas");
+lista.Cabeca = null;
+lista.InserirFinal(1);
+lista.InserirFinal(2);
+lista.InserirFinal(3);
+lista.InserirFinal(2);
+lista.InserirFinal(4);
+lista.InserirFinal(1);
+Console.WriteLine($"Antes de remover duplicatas: ");
+lista.Imprimir();
+Console.WriteLine();
+// Descomentar/comentar linha quando precisar testar outro método
+lista.RemoverDuplicatasComSet();
+// lista.RemoverDuplicatasSemAux();
+Console.WriteLine($"Depois de remover duplicatas: ");
+lista.Imprimir();
+Console.WriteLine("\n");
+
+
+Console.WriteLine("Exercício 9 - Detectar Ciclo em Lista");
+No? no4 = lista.Cabeca!.Proximo!.Proximo!.Proximo;
+No? no2 = lista.Cabeca.Proximo;
+no4!.Proximo = no2; 
+Console.WriteLine($"Tem ciclo? {lista.TemCiclo()}");
+No? inicio = lista.InicioCiclo();
+if (inicio != null) {
+    Console.WriteLine($"O ciclo começa no nó com valor: {inicio.Dado}");
+}
+Console.WriteLine("\n");
+
+
+Console.WriteLine("Exercício 10 - Merge Sort em Lista Encadeada");
+ListaEncadeada listaMerge = new ListaEncadeada();
+int[] valores = {5, 1, 4, 2, 8, 3};
+foreach(int valor in valores)
+{
+    listaMerge.InserirFinal(valor);
+}
+Console.WriteLine($"Antes da ordenação: ");
+listaMerge.Imprimir();
+Console.WriteLine();
+listaMerge.Ordenar();
+Console.WriteLine($"Depois do Merge Sort: ");
+listaMerge.Imprimir();
+Console.WriteLine("\n");
